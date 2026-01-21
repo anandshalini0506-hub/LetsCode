@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Overlapping Images</title>
+    <style>
+        body{
+            background-color: blueviolet;
+        }
+
+        .stack{
+            position:relative;
+            width:300px;
+            height:200px;
+            margin: 100px auto;
+        }
+
+        .stack img{
+            position:absolute;
+            width:100%;
+            border-radius: 10px;
+            box-shadow:0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .img1{z-index:1;top:0;left:0}
+        .img2{z-index:2;top:15px;left:30px}
+        .img3{z-index:3;top:15px;left:30px}
+    </style>
+</head>
+<body>
+    <div class="stack">
+        <img src="imgs/yeahh.jpg" class="img1">
+        <img src="imgs/hii.jpg" class="img2">
+        <img src="imgs/why.jpg" class="img3">
+    </div>
+</body>
+</html>
