@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        input[type=text],select{
+            width:100%;
+            padding:12px 20px;
+            margin:8px 0;
+            display:inline-block;
+            border:1px solid black;
+            border-radius: 4px;
+            box-sizing:border-box;
+        }
+
+        input[type=submit]{
+            width:100%;
+            background-color: yellow;
+            color:white;
+            padding:12px 20px;
+            margin:8px 0;
+            border:none;
+            border-radius: 4px;
+            cursor:pointer;
+        }
+
+        input[type=submit]:hover{
+            background-color: aliceblue;
+        }
+
+        div{
+            border-radius:5px;
+            background-color: cyan;
+            padding:20px;
+        }
+    </style>
+</head>
+<body>
+    <h3>HTML FORM with CSS</h3>
+    <div>
+        <form action="/28.html">
+            <label for="fname">username</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name....">
+
+            <label type="lname">password</label>
+            <input type="password" id="lname" name="lastname" placeholder="Your last name...">
+            
+            <label for="state">state</label>
+            <select id="state" name="state">
+            <option value="tamilnadu">TN</option>
+            <option value="karnataka">Karnataka</option>
+            <option value="kerela">Kerela</option>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
