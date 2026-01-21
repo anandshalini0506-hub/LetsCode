@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h1.x{
+            color:blue;
+            text-align:center;
+        }
+        h2{
+            color:blue;
+            text-decoration-line:underline ;
+            text-decoration-color:lightgray;
+        }
+        p.new{
+            background-color:lightblue;
+            border:5px solid black;
+            margin-left:5px;
+            margin-right:300px;
+            padding-left:30px;
+            padding-top:10px;
+            padding-bottom: 10px;
+            width:800px;
+            text-align:left;
+            display:inline-block;
+        }
+        div.hey{
+            background: url("imgs/yeahh.jpg");
+            background-position:right top ;
+            background-repeat: no-repeat;
+            background-attachment:scroll;
+            width:300px;
+            height:600px;
+            float:right;
+        }
+        h3.mm{
+            text-shadow:2px 2px blue;
+            text-decoration-line:underline;
+            text-decoration-color:lightgray;
+        }
+        p.dotted{border-style:dotted;border-color:red;padding-left:3px;width:830px;}
+        p.dashed{border-style:dashed;color:blue; background-color: lightblue;padding-left:3px;width:830px;}
+        p.solid{border-style:solid;color:black;padding-left:3px;width:830px;}
+        p.round{
+            border:3px solid red;
+            border-radius: 5px;
+            color:red;
+            padding-left:5px;
+            width:830px;
+        }
+        h3.yo{
+            color:blue;
+            text-decoration-line:underline;
+            text-decoration-color: lightgray;
+        }
+        table,th,td{
+            border:1px solid black;
+            border-collapse: collapse;
+            width:700px;
+            height:50px;
+            text-align: left;
+        }
+        th{
+            background-color:black;
+            color:white;
+            padding-left:5px;
+        }
+        tr:hover{
+            background-color:deeppink;
+        }
+        th,td{
+            cursor: pointer;
+        }
+        tr:nth-child(even){
+            background-color: orange;
+        }
+
+        h3.ok{
+            color:blue;
+            text-decoration-line:underline;
+            text-decoration-color:lightgray;
+        }
+        input[type=text],select{
+            width:500px;
+            border:1px solid black;
+            border-radius:3px;
+            height:20px;
+            margin:5px;
+        }
+        input[type=password]{
+            width:500px;
+            border:1px solid black;
+            border-radius:3px;
+            height:20px;
+            margin:5px;
+        }
+        input[type=submit]{
+            width:300px;
+            border:1px solid black;
+            height:30px;
+            background-color: lightseagreen;
+            cursor:pointer;
+            justify-content: center;
+            align-items: center;
+        }
+        input[type=submit]:hover{
+            cursor: pointer;
+            background-color: blue;
+        }
+        h1.y{
+            color:red;
+            text-align: center;
+        }
+        .umm{
+            animation: blink 1s linear infinite;
+            color:red;
+        }
+        @keyframes blink{
+            0% {opacity:1;}
+            50% {opacity:0;}
+            100% {opacity:1;}
+        }
+    </style>
+</head>
+</html>
+<body>
+    <h1 class="x">Web Programming-CSS Lab Practice</h1>
+    <hr style="color:lightgray">
+    <h2>CSS Box Model</h2>
+    <p class="new">This box demonstrates margin,padding,border,width</p>
+    <div class="hey"></div>
+    <h3 class="mm">Border Styles</h3>
+    <p class="dotted">Dotted Border</p>
+    <p class="dashed">Dashed Border</p>
+    <p class="solid">Solid Border</p>
+    <p class="round">Rounded Border</p>
+    <h3 class="yo">Course Faculty Table</h3>
+    <table>
+        <tr>
+            <th>Course</th>
+            <th>Faculty</th>
+        </tr>
+        <tr>
+            <td>Web Programming</td>
+            <td>Dr.X</td>
+        </tr>
+        <tr>
+            <td>Theory Of Computation</td>
+            <td>Dr.Y</td>
+        </tr>
+    </table>
+    <h3 class="ok">HTML Form</h3>
+    <form action="/sample.html">
+        <label for="username" >username</label>
+        <input type="text" id="username" name="Username" placeholder="Username">
+        <br>
+        <label for="password">password</label>
+        <input type="password" id="password" name="Password" placeholder="Password">
+        <br>
+        <label for="state">state</label>
+        <select id="state" name="state">
+            <option value="tamilnadu">Tamil Nadu</option>
+            <option value="kerela">Kerela</option>
+            <option value="karnataka">Karnataka</option>
+            <option value="maharashtra">Maharashtra</option>
+            <option value="bihar">Bihar</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit"> 
+    </form>
+    <marquee><h1 class="y"><i>Good Luck For Your Exam!!!</i></h1></marquee>
+    <p class="umm">You will defnitely do well!!</p>
+</body>
