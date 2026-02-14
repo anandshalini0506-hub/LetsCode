@@ -3,32 +3,31 @@
 #include <algorithm>
 using namespace std;
 
-bool compare(vector<int> &a, vector<int> &b){
+bool compare(vector<double> &a, vector<double> &b){
     double r1=a[1]/a[0];
     double r2=b[1]/b[0];
     return r1>r2;
 }
 
-double fractionalKnapsack(vector<vector<double>>& items, double W){
+double fractionalKnapsack(vector<vector<double>>&items, double W){
     sort(items.begin(),items.end(),compare);
     double totalProfit=0.0;
-
-    for(int i=0;i<items.size();i++){
+    int n=items.size();
+    for(int i=0;i<n;i++){
         if(W==0) break;
-
-        double weight=items[i][0];
-        double profit=items[i][1];
+        int weight=items[i][0];
+        int profit=items[i][1];
         if(weight<=W){
-            cout<<(int)weight<<" "<<profit<<"\n";
-            totalProfit+=items[i][1];
+            cout<<weight<<" "<<profit<<"\n";
+            totalProfit+=profit;
             W-=weight;
         }
         else{
             double fraction=W/weight;
-            double takenProfit=fraction*profit;
-            cout<<W<<" "<<takenProfit<<"\n";
+            double takenProfit=profit*fraction;
             totalProfit+=takenProfit;
-            W==0;
+            cout<<weight<<" "<<totalProfit<<"\n";
+            W=0;
         }
     }
     return totalProfit;
@@ -36,23 +35,22 @@ double fractionalKnapsack(vector<vector<double>>& items, double W){
 
 int main(){
     int n;
-    double W;
     cin>>n;
+    double W;
     cin>>W;
-    vector<int> weight(n);
+    vector<double> wt(n);
     vector<double> profit(n);
-    vector<vector<double>> items(n,vector<double>(n));
     for(int i=0;i<n;i++){
-        cin>>weight[i];
+        cin>>wt[i];
     }
     for(int i=0;i<n;i++){
         cin>>profit[i];
     }
+    vector<vector<double>> items(n,vector<double>(2));
     for(int i=0;i<n;i++){
-        items[i][0]=weight[i];
+        items[i][0]=wt[i];
         items[i][1]=profit[i];
     }
     double totalProfit=fractionalKnapsack(items,W);
-    cout<<"Total profit: "<<totalProfit;
     return 0;
 }

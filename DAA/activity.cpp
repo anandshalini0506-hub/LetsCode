@@ -4,7 +4,7 @@
 using namespace std;
 
 struct Activity{
-    int start,finish, index;
+    int start,finish,index;
 };
 
 bool compare(Activity a, Activity b){
@@ -14,7 +14,7 @@ bool compare(Activity a, Activity b){
 int main(){
     int n;
     cin>>n;
-    vector<int> start(n),finish(n);
+    vector <int> start(n),finish(n);
     for(int i=0;i<n;i++){
         cin>>start[i];
     }
@@ -22,24 +22,25 @@ int main(){
         cin>>finish[i];
     }
     vector<Activity> activity(n);
-    sort(activity.begin(),activity.end(),compare);
     for(int i=0;i<n;i++){
         activity[i].start=start[i];
         activity[i].finish=finish[i];
         activity[i].index=i;
     }
+    sort(activity.begin(),activity.end(),compare);
     vector<int> result;
     int finish_Last=activity[0].finish;
     result.push_back(activity[0].index);
     for(int i=1;i<n;i++){
         if(activity[i].start>=finish_Last){
-            result.push_back(activity[i].index);
             finish_Last=activity[i].finish;
+            result.push_back(activity[i].index);
         }
     }
     sort(result.begin(),result.end());
     for(int res:result){
         cout<<res<<" ";
     }
+    cout<<endl;
     return 0;
 }
