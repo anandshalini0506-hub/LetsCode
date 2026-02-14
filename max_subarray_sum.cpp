@@ -1,25 +1,24 @@
 #include <iostream>
 using namespace std;
-
 int main(){
     int n;
+    cin>>n;
     long long S;
     cin>>S;
-    cin>>n;
-    long long A[n];
+    long long arr[n];
     for(int i=0;i<n;i++){
-        cin>>A[i];
+        cin>>arr[i];
     }
-    long long currentSum=0;
+    long long currSum=0;
     int l=0;
     for(int r=0;r<n;r++){
-        currentSum+=A[r];
-        while(currentSum>S && l<=r){
-            currentSum-=A[l];
+        currSum+=arr[r];
+        while(currSum>S && l<=r){
+            currSum-=arr[l];
             l++;
         }
-        if(currentSum==S){
-            cout<<l+1<<" "<<r+1<<endl;
+        if(currSum==S){
+            cout<<l+1<<" "<<r+1;
             return 0;
         }
     }
