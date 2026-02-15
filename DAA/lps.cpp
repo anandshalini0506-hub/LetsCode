@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <string>
 using namespace std;
 
 int main(){
@@ -7,31 +7,29 @@ int main(){
     cin>>s;
     int n=s.length();
     int start=0;
-    int maxLen=1;
+    int maxlen=1;
     for(int i=0;i<n;i++){
-        int l=i; int r=i;
+        int l=i,r=i;
         while(l>=0 && r<n && s[l]==s[r]){
             int len=r-l+1;
-            if(len>maxLen){
-                maxLen=len;
+            if(len>maxlen){
+                maxlen=len;
                 start=l;
-                cout<<s.substr(start,maxLen)<<endl;
+                cout<<s.substr(start,maxlen);
             }
-            l--;
-            r--;
+            l++;r--;
         }
-        int l=i; int r=i+1;
+        int l=i,r=i+1;
         while(l>=0 && r<n && s[l]==s[r]){
             int len=r-l+1;
-            if(len>maxLen){
-                maxLen=len;
+            if(len>maxlen){
+                maxlen=len;
                 start=l;
-                cout<<s.substr(start,maxLen)<<endl;
+                cout<<s.substr(start,maxlen);
             }
-            l--;
-            r--;
+            l++;r--;
         }
     }
-    cout<<"Longest palindrome substring is: "<<s.substr(start,maxLen);
+    cout<<"Longest palindromic string"<<s.substr(start,maxlen)<<endl;
     return 0;
 }

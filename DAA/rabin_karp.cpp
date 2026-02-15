@@ -1,16 +1,13 @@
 #include <iostream>
-#include <vector>
+#include <string>
 using namespace std;
 
 void rabinKarp(const string &text, const string &pattern){
     int m=text.length();
     int n=pattern.length();
+    if(n>m) cout<<"Pattern not found";
     int d=10;
     int q=13;
-    if(n<m){
-        cout<<"Pattern not found"<<endl;
-        return;
-    }
     int patternHash=0;
     int windowHash=0;
     int h=1;
@@ -31,25 +28,21 @@ void rabinKarp(const string &text, const string &pattern){
                 }
             }
             if(match){
-                cout<<"Pattern found at index"<<i+1<<endl;
+                cout<<"Pattern found at "<<i+1<<endl;
             }
         }
-        if(i<n-m){
+        if(i<m-n){
             windowHash=(d*(windowHash-text[i]*h)+text[i+n])%q;
-            if(windowHash<0){
-                windowHash+=q;
-            }
+            if(windowHash<0) windowHash+=q;
         }
     }
-    cout<<"Pattern not found"<<endl;
+    cout<<"Pattern not found";
 }
 
 int main(){
     string text,pattern;
-    cout<<"Enter the text: ";
-    cin>>text;
-    cout<<"Enter the pattern: ";
-    cin>>pattern;
+    getline(cin,text);
+    getline(cin,pattern);
     rabinKarp(text,pattern);
     return 0;
 }

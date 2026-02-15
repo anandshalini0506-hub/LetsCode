@@ -2,26 +2,24 @@
 #include <string>
 using namespace std;
 
-void search(string &pat, string &txt){
-    int M=pat.length();
-    int N=txt.length();
-    for(int i=0;i<=N-M;i++){
+void search(const string &text, const string &pattern){
+    int m=pattern.length();
+    int n=text.length();
+    for(int i=0;i<=n-m;i++){
         int j;
-        for(int j=0;j<M;j++){
-            if(txt[i+j]!=pat[j]){
-                break;
-            }
+        for(j=0;j<m;j++){
+            if(text[i+j]!=pattern[j]) break;
         }
-        if(j==M){
-            cout<<"Pattern found at index "<<i<<"\n";
+        if(j==m){
+            cout<<"Pattern found at: "<<i<<endl;
         }
     }
 }
 
 int main(){
-    string txt,pat;
-    getline(cin,txt);
-    getline(cin,pat);
-    search(pat,txt);
+    string text,pattern;
+    getline(cin,text);
+    getline(cin,pattern);
+    search(text,pattern);
     return 0;
 }
