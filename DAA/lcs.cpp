@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <string>
-#include <climits>
 using namespace std;
 
 int main(){
@@ -10,7 +10,6 @@ int main(){
     cin>>s2;
     int m=s1.length();
     int n=s2.length();
-
     vector<vector<int>> s(m+1, vector<int>(n+1,0));
     for(int i=1;i<=m;i++){
         for(int j=1;j<=n;j++){
@@ -18,7 +17,7 @@ int main(){
                 s[i][j]=1+s[i-1][j-1];
             }
             else{
-                s[i][j]=max(s[i-1][j], s[i][j-1]);
+                s[i][j]= max(s[i-1][j], s[i][j-1]);
             }
         }
     }
@@ -26,8 +25,7 @@ int main(){
         for(int j=0;j<=n;j++){
             cout<<s[i][j]<<" ";
         }
-        cout<<endl;
     }
-    cout<<"Length of LCS "<<s[m][n];
+    cout<<"Length of longest common subsequence "<< s[m][n]<<endl;
     return 0;
 }

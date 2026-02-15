@@ -3,7 +3,8 @@
 #include <algorithm>
 #include <climits>
 using namespace std;
-int maxCrossingSum(vector<int>& arr, int l, int m, int r, int k){
+
+int maxCrossingSum(vector<int> &arr, int l, int m , int r, int k){
     int maxSum=INT_MIN;
     for(int i=max(l,m-k+1);i<=m;i++){
         int sum=0;
@@ -20,7 +21,8 @@ int maxCrossingSum(vector<int>& arr, int l, int m, int r, int k){
 
 int maxSubarrSum(vector<int> &arr, int l, int r, int k){
     if(r-l+1<k) return INT_MIN;
-    if(l==r) return(k==1)?arr[l]:INT_MIN;
+    if(l==r) return (k==1)?arr[l]:INT_MIN;
+
     int m=(l+r)/2;
     int leftMax=maxSubarrSum(arr,l,m,k);
     int rightMax=maxSubarrSum(arr,m+1,r,k);
@@ -29,9 +31,11 @@ int maxSubarrSum(vector<int> &arr, int l, int r, int k){
 }
 
 int main(){
-    int n,k;
-    cin>>n>>k;
-    vector <int> arr(n);
+    int n;
+    cin>>n;
+    int k;
+    cin>>k;
+    vector<int> arr(n);
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
