@@ -3,30 +3,30 @@
 #include <algorithm>
 using namespace std;
 
-bool compare(vector<double> &a, vector<double> &b){
+bool compare(vector<int> &a, vector<int> &b){
     double r1=a[1]/a[0];
     double r2=b[1]/b[0];
     return r1>r2;
 }
 
-double fractionalKnapsack(vector<vector<double>>&items, double W){
+double fractionalKnapsack(vector<vector<double>> &items, double W){
     sort(items.begin(),items.end(),compare);
     double totalProfit=0.0;
-    int n=items.size();
-    for(int i=0;i<n;i++){
+    for(int i=0;i<items.size();i++){
         if(W==0) break;
-        int weight=items[i][0];
-        int profit=items[i][1];
+        double weight=items[i][0];
+        double profit=items[i][1];
+
         if(weight<=W){
-            cout<<weight<<" "<<profit<<"\n";
+            cout<<(int)weight<<" "<<profit<<endl;
             totalProfit+=profit;
             W-=weight;
         }
         else{
             double fraction=W/weight;
-            double takenProfit=profit*fraction;
+            double takenProfit=fraction*profit;
+            cout<<W<<" "<<takenProfit<<endl;
             totalProfit+=takenProfit;
-            cout<<weight<<" "<<totalProfit<<"\n";
             W=0;
         }
     }
@@ -38,7 +38,7 @@ int main(){
     cin>>n;
     double W;
     cin>>W;
-    vector<double> wt(n);
+    vector<int> wt(n);
     vector<double> profit(n);
     for(int i=0;i<n;i++){
         cin>>wt[i];
@@ -46,11 +46,12 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>profit[i];
     }
-    vector<vector<double>> items(n,vector<double>(2));
+    vector<vector<double>> items(n, vector<double>(2));
     for(int i=0;i<n;i++){
         items[i][0]=wt[i];
         items[i][1]=profit[i];
     }
-    double totalProfit=fractionalKnapsack(items,W);
+    double result=fractionalKnapsack(items,W);
+    cout<<result<<endl;
     return 0;
 }

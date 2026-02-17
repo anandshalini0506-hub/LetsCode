@@ -7,29 +7,31 @@ int main(){
     cin>>s;
     int n=s.length();
     int start=0;
-    int maxLen=1;
+    int maxLen=0;
     for(int i=0;i<n;i++){
         int l=i,r=i;
-        int len=r-l+1;
         while(l>=0 && r<n && s[l]==s[r]){
+            int len=r-l+1;
             if(len>maxLen){
                 maxLen=len;
                 start=l;
-                cout<<s.substr(start,maxLen);
+                cout<<s.substr(start,maxLen)<<endl;
             }
-            l++; r--;
+            l--;
+            r++;
         }
         int l=i,r=i+1;
-        int len=r-l+1;
         while(l>=0 && r<n && s[l]==s[r]){
+            int len=r-l+1;
             if(len>maxLen){
                 maxLen=len;
                 start=l;
-                cout<<s.substr(start,maxLen);
+                cout<<s.substr(start,maxLen)<<endl;
             }
-            l++; r--;
+            l--;
+            r++;
         }
     }
-    cout<<"Longest palindromic substring is :"<<s.substr(start,maxLen);
+    cout<<"Length of longest palindromic substring "<<s.substr(start,maxLen)<<endl;
     return 0;
 }

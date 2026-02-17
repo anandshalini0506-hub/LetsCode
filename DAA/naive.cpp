@@ -7,21 +7,17 @@ void search(const string &pat, const string &text){
     int n=text.length();
     for(int i=0;i<=n-m;i++){
         int j;
-        for(j=0;j<m;j++){
-            if(text[i+j]!=pat[j]){
-                break;
-            }
+        for(int j=0;j<m;j++){
+            if(text[i+j]!=pat[j]) break;
         }
-        if(j==m){
-            cout<<"Pattern found at length"<<i<<endl;
-        }
+        if(j==m) cout<<"Pattern found at index "<<i<<endl;
     }
 }
 
 int main(){
-    string pattern, text;
-    getline(cin,pattern);
+    string text,pattern;
     getline(cin,text);
+    getline(cin,pattern);
     search(pattern,text);
     return 0;
 }
