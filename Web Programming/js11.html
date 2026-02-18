@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <p>Enter your bday: <input type="date" id="dob"></p>
+    <button onclick="Age()">Calculate</button>
+    <p id="res"></p>
+    <script>
+        function Age(){
+            var userinput=document.getElementById("dob").value;
+            var dob=new Date(userinput);
+            if(userinput==null||userinput==""){
+                document.getElementById("res").innerHTML="Choose a date!!!";
+                return false;
+            }
+            let month_diff=Date.now()-dob.getTime();
+            let age_dt=new Date(month_diff);
+            let year=age_dt.getUTCFullYear();
+            let age=Math.abs(year-1970);
+            document.getElementById("res").innerHTML="The age is "+age+".";
+        }
+    </script>
+</body>
+</html>
