@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Password Validation</title>
+    <style>
+        .error{
+            color:red;
+        }
+        .success{
+            color:green;
+        }
+    </style>
+</head>
+<body>
+    <form>
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password">
+    <input type="button" value="Submit" onclick="validatePassword()">
+    <p id="msg"></p>
+    </form>
+<script>
+    function validatePassword(){
+        const msg=document.getElementById("msg");
+        const password=document.getElementById("password").value;
+        const minLength=8;
+        const hasLowerCase=/[a-z]/.test(password);
+        const hasUpperCase=/[A-Z]/.test(password);
+        const hasNumbers=/\d/.test(password);
+        const hasSpecialChars=/[!@#$%^&*()+=_\-]/.test(password);
+
+        if(password.length<minLength){
+            msg.textContent="The password should have atleast 8 characters."
+            msg.className="error";
+        }
+        else if(!hasLowerCase){
+            msg.textContent="The password must have atleast one lower case char";
+            
+        }
+        else if(!hasUpperCase){
+            msg.textContent="The password must have atleast one uppercase char";
+            
+        }
+        else if(!hasNumbers){
+            msg.textContent="The password must have atleast one number";
+            
+        }
+        else if(!hasSpecialChars){
+            msg.textContent="The password must have atleast one special char";
+            
+        }
+        else{
+            msg.textContent="The password is valid";
+            msg.className="success";
+        }
+    }
+</script>
+</body>
+</html>

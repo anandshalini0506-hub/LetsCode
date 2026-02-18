@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <form>
+        <p>Enter first name: <input type="text" name="fname" /></p>
+        <p>Enter second name: <input type="text" name="lname" /></p>
+        <p>Address: <textarea name="tarea" rows="4" col="15"></textarea></p>
+        <p>Select state:
+            <select name="state">
+                <option value="TN">tamilnadu</option>
+                <option value="KA">karnataka</option>
+                <option value="MH">maharashtra</option>
+            </select>
+        </p>
+        <p>Gender: 
+            <input type="radio" name="gender">Male
+            <input type="radio" name="gender">Female
+        </p>
+        <p>Reg No.:
+            <input type="text" name="id" />
+        </p>
+        <p> Phone number:
+            <input type="number" name="phno" maxlength="10" />
+        </p>
+        <p>Birth date:
+            <input type="date" name="bday" name="Birthday">
+        </p>
+        <p>
+            <input type="button" name="submit" value="submit" onclick=myForm(this.form)> 
+        </p>
+    </form>
+    <script>
+        function myForm(form){
+            let x=form.elements["fname"].value;
+            if(x==""){
+                alert("the form must be filled.");
+                return false;
+            }
+            else{
+                document.getElementById("one").innerHTML=form.elements["fname"].value;
+                document.getElementById("two").innerHTML=form.elements["lname"].value;
+            }
+        }
+    </script>
+    Data Entered: <p id="one"></p><p id="two"></p>
+</body>
+</html>
